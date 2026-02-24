@@ -11,14 +11,10 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
 import androidx.annotation.RequiresApi
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.statusBars
-import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsControllerCompat
@@ -38,8 +34,8 @@ class MainActivity : ComponentActivity() {
             isAppearanceLightStatusBars = true
         }
 
-        WindowInsetsControllerCompat(window, window.decorView)
-            .show(android.view.WindowInsets.Type.statusBars())
+        /*WindowInsetsControllerCompat(window, window.decorView)
+            .show(android.view.WindowInsets.Type.statusBars())*/
 
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
 
@@ -86,7 +82,7 @@ fun Home(url: String) {
                 loadUrl(url)
             }
         },
-        modifier = Modifier.fillMaxSize().background(Color.White).windowInsetsPadding(WindowInsets.statusBars),
+        modifier = Modifier.fillMaxSize().statusBarsPadding(),
         update = {
             webView = it
         }
